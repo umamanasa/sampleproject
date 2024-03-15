@@ -19,7 +19,7 @@ echo -e "\e[32mHello\e[0m"
 a=10
 echo a is $a
 
-DATE = $(date)
+DATE=$(date)
 echo Today date is $DATE
-ADD = $(2+2)
+ADD=$(( 2+2 ))
 echo add of 2+2 = $ADD
