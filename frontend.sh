@@ -24,14 +24,6 @@ systemctl restart nginx
 
 
 
-
-
-
-
-
-
-
-
 #Create Nginx Reverse Proxy Configuration.
 #vim /etc/nginx/default.d/expense.conf
 #
