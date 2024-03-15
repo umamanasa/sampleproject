@@ -29,7 +29,8 @@ echo add of 2+2 = $ADD
 #  fi
 x=10
 y=12
-if [ $x -eq $y ] then
+if [ $x -eq $y ]
+then
   echo "EQUAL"
   else
     echo "NOT EQUAL"
