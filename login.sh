@@ -1,5 +1,4 @@
 #To print a message
-echo Hello World!!
 echo Good Morning, Have a nice day!
 
 #To print a message with colors
@@ -12,14 +11,32 @@ echo Good Morning, Have a nice day!
 # Cyan      36
 
 echo -e "\e[33mHello\e[0m"
-echo -e "\e[36mHello\e[0m"
-echo -e "\e[32mHello\e[0m"
 
 #Variables
 a=10
 echo a is $a
 
-DATE=$(date)
+DATE=$(date)   #date variable
 echo Today date is $DATE
-ADD=$(( 2+2 ))
+
+ADD=$(( 2+2 ))   #special variables
 echo add of 2+2 = $ADD
+
+#Conditional statements
+#if [ condition ]
+#then
+#  statements
+#  fi
+x=10
+y=12
+if [ $x -eq $y ] then
+  echo "EQUAL"
+  else
+    echo "NOT EQUAL"
+  fi
+
+#while condition
+#while [ condition ]
+#do
+#  statements
+#  done
