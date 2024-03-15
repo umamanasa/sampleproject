@@ -14,3 +14,12 @@ echo Good Morning, Have a nice day!
 echo -e "\e[33mHello\e[0m"
 echo -e "\e[36mHello\e[0m"
 echo -e "\e[32mHello\e[0m"
+
+#Variables
+a=10
+echo a is $a
+
+DATE = $(date)
+echo Today date is $DATE
+ADD = $(2+2)
+echo add of 2+2 = $ADD
