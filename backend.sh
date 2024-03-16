@@ -1,33 +1,25 @@
-Install NodeJS, You can list modules by using dnf module list
-dnf module disable nodejs -y
-dnf module enable nodejs:20 -y
+cp backend.service /etc/systemd/system/backend.service
 
-dnf install nodejs -y
+yum module disable nodejs -y
+yum module enable nodejs:18 -y
 
-Add application User
+yum install nodejs -y
+
 useradd expense
 
-Lets setup an app directory.
 mkdir /app
 
-Download the application code to created app directory.
-curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip
+curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip
 cd /app
 unzip /tmp/backend.zip
 
-Lets download the dependencies.
 cd /app
 npm install
 
-Setup SystemD Expense Backend Service
-[Unit]
-Description = Backend Service
+yum install mysql -y
 
-[Service]
-User=expense
-Environment=DB_HOST="<MYSQL-SERVER-IPADDRESS>"
-ExecStart=/bin/node /app/index.js
-SyslogIdentifier=backend
+mysql -h mysql.manasareddy.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
-[Install]
-WantedBy=multi-user.target
+systemctl daemon-reload
+systemctl enable backend
+systemctl restart backend

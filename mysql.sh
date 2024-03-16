@@ -1,8 +1,10 @@
-#Install MySQL Server 8.0.x
-dnf install mysql-server -y
+cp mysql.repo /etc/yum.repos.d/mysql.repo
 
-Start MySQL Service
-systemctl enable mysqld
-systemctl start mysqld
+yum module disable mysql -y
+
+yum install mysql-community-server -y
 
 mysql_secure_installation --set-root-pass ExpenseApp@1
+
+systemctl enable mysqld
+systemctl restart mysqld
