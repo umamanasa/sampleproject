@@ -1,15 +1,22 @@
-yum install nginx -y
+log=/tmp/expense.log
+echo -e "\e[36m>>>>>> Install NGINX <<<<<\e[0m"
+yum install nginx -y &>>${log}
 
-cp nginx.conf /etc/nginx/default.d/expense.conf
+echo -e "\e[36m>>>>>> Copy NGINX conf <<<<<\e[0m"
+cp nginx.conf /etc/nginx/default.d/expense.conf &>>${log}
 
-rm -rf /usr/share/nginx/html/*
+echo -e "\e[36m>>>>>>Remove the default content <<<<<\e[0m"
+rm -rf /usr/share/nginx/html/* &>>${log}
 
-curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip
+echo -e "\e[36m>>>>>> Download the frontend content <<<<<\e[0m"
+curl -o /tmp/frontend.zip https://expense-artifacts.s3.amazonaws.com/frontend.zip &>>${log}
 
-cd /usr/share/nginx/html
-unzip /tmp/frontend.zip
+echo -e "\e[36m>>>>>> Extract the frontend content <<<<<\e[0m"
+cd /usr/share/nginx/html &>>${log}
+unzip /tmp/frontend.zip &>>${log}
 
-systemctl enable nginx
-systemctl restart nginx
+echo -e "\e[36m>>>>>>Start Nginx service <<<<<\e[0m"
+systemctl enable nginx &>>${log}
+systemctl restart nginx &>>${log}
 
 
