@@ -22,12 +22,17 @@ id expense &>>${log}
     fi
     func_exit_status
 
+echo -e "\e[36m>>>>>> Removing Previous Content <<<<<\e[0m"
+    rm -rf /app &>>${log}
+    func_exit_status
+
 echo -e "\e[36m>>>>>> setup app directory <<<<<\e[0m"
 mkdir /app &>>${log}
 func_exit_status
 
 echo -e "\e[36m>>>>>>Download the app code <<<<<\e[0m"
 curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip &>>${log}
+
 cd /app &>>${log}
 unzip /tmp/backend.zip &>>${log}
 func_exit_status
