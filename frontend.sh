@@ -22,5 +22,9 @@ cd /usr/share/nginx/html &>>${log}
 unzip /tmp/frontend.zip &>>${log}
 func_exit_status
 
-func_systemd
+echo -e "\e[36m>>>>>> Start frontend NGINX service <<<<<\e[0m"
+systemctl enable nginx &>>${log}
+systemctl restart nginx &>>${log}
+func_exit_status
+
 
