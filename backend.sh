@@ -1,4 +1,5 @@
 log=/tmp/expense.log
+component=backend
 source common.sh
 
 echo -e "\e[36m>>>>>> Copy Backend service file <<<<<\e[0m"
@@ -41,8 +42,4 @@ echo -e "\e[36m>>>>>> Load Schema <<<<<\e[0m"
 mysql -h mysql.manasareddy.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>${log}
 func_exit_status
 
-echo -e "\e[36m>>>>>> Start service <<<<<\e[0m"
-systemctl daemon-reload &>>${log}
-systemctl enable backend &>>${log}
-systemctl restart backend &>>${log}
-func_exit_status
+func_systemd

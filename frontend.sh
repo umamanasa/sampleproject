@@ -1,4 +1,5 @@
 log=/tmp/expense.log
+component=frontend
 source common.sh
 echo -e "\e[36m>>>>>> Install NGINX <<<<<\e[0m"
 yum install nginx -y &>>${log}
@@ -21,8 +22,5 @@ cd /usr/share/nginx/html &>>${log}
 unzip /tmp/frontend.zip &>>${log}
 func_exit_status
 
-echo -e "\e[36m>>>>>>Start Nginx service <<<<<\e[0m"
-systemctl enable nginx &>>${log}
-systemctl restart nginx &>>${log}
-func_exit_status
+func_systemd
 
