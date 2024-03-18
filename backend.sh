@@ -1,4 +1,6 @@
 log=/tmp/expense.log
+source common.sh
+
 echo -e "\e[36m>>>>>> Copy Backend service file <<<<<\e[0m"
 cp backend.service /etc/systemd/system/backend.service &>>${log}
 func_exit_status

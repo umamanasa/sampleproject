@@ -1,4 +1,5 @@
 log=/tmp/expense.log
+source common.sh
 echo -e "\e[36m>>>>>> Install NGINX <<<<<\e[0m"
 yum install nginx -y &>>${log}
 func_exit_status

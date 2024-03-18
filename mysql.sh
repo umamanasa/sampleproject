@@ -1,4 +1,5 @@
 log=/tmp/expense.log
+source common.sh
 echo -e "\e[36m>>>>>> Copy MySQL Repo file <<<<<\e[0m"
 cp mysql.repo /etc/yum.repos.d/mysql.repo &>>${log}
 func_exit_status
