@@ -16,8 +16,11 @@ yum install nodejs -y &>>${log}
 func_exit_status
 
 echo -e "\e[36m>>>>>> Add application User <<<<<\e[0m"
-useradd expense &>>${log}
-func_exit_status
+id expense &>>${log}
+  if [ $? -ne 0 ]; then
+    useradd expense &>>${log}
+    fi
+    func_exit_status
 
 echo -e "\e[36m>>>>>> setup app directory <<<<<\e[0m"
 mkdir /app &>>${log}
