@@ -5,7 +5,7 @@ yum install nginx -y &>>${log}
 func_exit_status
 
 echo -e "\e[36m>>>>>> Copy NGINX conf <<<<<\e[0m"
-cp nginx.conf /etc/nginx/default.d/expense.conf &>>${log}
+cp nginx-expense.conf /etc/nginx/default.d/expense.conf &>>${log}
 func_exit_status
 
 echo -e "\e[36m>>>>>>Remove the default content <<<<<\e[0m"
